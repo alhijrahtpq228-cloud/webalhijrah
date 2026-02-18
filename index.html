@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPQ AL-HIJRAH - Membangun Generasi Qur'ani</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1a5f4a;
+            --secondary-green: #2d8a6e;
+            --light-green: #e8f5f0;
+            --accent-gold: #d4af37;
+            --white: #ffffff;
+            --dark: #2c3e50;
+            --gray: #f8f9fa;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-green);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" fill="rgba(255,255,255,0.03)">﷽</text></svg>');
+            background-size: 200px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 1rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .vm-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .vm-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--light-green);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-green);
+        }
+
+        /* Programs Section */
+        .programs {
+            background: var(--white);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--light-green);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .program-card:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .program-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            background: var(--primary-green);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 95, 74, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Donation Section */
+        .donation {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+        }
+
+        .donation .section-title h2 {
+            color: var(--white);
+        }
+
+        .donation .section-title h2::after {
+            background: var(--accent-gold);
+        }
+
+        .donation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .donation-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .bank-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .bank-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .donation-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-green);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .qris-placeholder {
+            width: 200px;
+            height: 200px;
+            background: var(--gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+            border: 2px dashed var(--secondary-green);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            color: var(--primary-green);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-form {
+            background: var(--gray);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        /* Social Section */
+        .social {
+            background: var(--light-green);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--secondary-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            color: #aaa;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .donation-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .vision-mission {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Islamic Pattern Background */
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5f4a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co.com/1YqHqwMH/logo-tpq.png" alt="TPQ AL-HIJRAH Logo">
+                <span>TPQ AL-HIJRAH</span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#tentang" class="nav-link">Tentang Kami</a></li>
+                <li><a href="#galeri" class="nav-link">Galeri</a></li>
+                <li><a href="#donasi" class="nav-link">Donasi</a></li>
+                <li><a href="#kontak" class="nav-link">Hubungi Kami</a></li>
+                <li><a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank" class="nav-link"><i class="fab fa-facebook"></i> Facebook</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <div class="hero-logo">
+                <img src="https://i.ibb.co.com/1YqHqwMH/logo-tpq.png" alt="Logo TPQ AL-HIJRAH">
+            </div>
+            <h1>Selamat Datang di TPQ AL-HIJRAH</h1>
+            <p>Membangun Generasi Qur'ani, Berakhlak Mulia</p>
+            <div>
+                <a href="#kontak" class="btn">Daftar Sekarang</a>
+                <a href="#tentang" class="btn btn-outline">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Highlight -->
+    <section class="programs islamic-pattern">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Program Unggulan</h2>
+                <p>Berbagai program pembelajaran yang dirancang untuk membentuk generasi Qur'ani yang berakhlak mulia</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <h3>Tahsin & Tahfidz</h3>
+                    <p>Program penghafalan dan perbaikan bacaan Al-Qur'an dengan metode yang sistematis dan menyenangkan</p>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Iqra & Al-Qur'an</h3>
+                    <p>Pembelajaran dasar membaca Al-Qur'an mulai dari Iqra hingga bisa membaca Al-Qur'an dengan lancar</p>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h3>Adab & Akhlak</h3>
+                    <p>Pembentukan karakter islami melalui pembelajaran adab dan akhlak mulia sesuai tuntunan Islam</p>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <h3>Hafalan Doa</h3>
+                    <p>Program hafalan doa-doa harian dan surat-surat pendek yang bermanfaat untuk kehidupan sehari-hari</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Tentang Kami</h2>
+                <p>Mengenal lebih dekat TPQ AL-HIJRAH dan perjalanannya dalam membentuk generasi Qur'ani</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Sejarah Berdiri</h3>
+                    <p>TPQ AL-HIJRAH Yang beralamat di Arbes Amantelu RT 005 RW 017 Negeri Batu Merah Kota Ambon ini, didirikan dengan niat mulia untuk memberikan pendidikan Al-Qur'an yang berkualitas bagi anak-anak di lingkungan kita. Berawal dari kepedulian terhadap generasi muda yang perlu dibekali dengan ilmu agama sejak dini, kami memulai perjalanan ini dengan penuh semangat dan keikhlasan.</p>
+                    <p>Dengan dukungan para orang tua, ustadz, dan ustadzah yang berkompeten, TPQ AL-HIJRAH terus berkembang menjadi lembaga pembelajaran Al-Qur'an yang dicintai para santri. Kami berkomitmen untuk mencetak generasi yang tidak hanya hafal Al-Qur'an, tetapi juga memahami dan mengamalkannya dalam kehidupan sehari-hari.</p>
+                    
+                    <div class="vision-mission">
+                        <div class="vm-card">
+                            <h4><i class="fas fa-eye"></i> Visi</h4>
+                            <p>Menjadikan TPQ AL-HIJRAH sebagai lembaga pendidikan Al-Qur'an terdepan yang mencetak generasi Qur'ani, berakhlak mulia, dan bermanfaat bagi umat.</p>
+                        </div>
+                        <div class="vm-card">
+                            <h4><i class="fas fa-bullseye"></i> Misi</h4>
+                            <p>Menyelenggarakan pembelajaran Al-Qur'an yang berkualitas, membentuk akhlak islami, dan mengembangkan potensi santri secara holistik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image fade-in">
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="team-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Ust. Imra Wabula</h4>
+                            <p>Pengajar Tahfidz</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Ustz. Wa Ati</h4>
+                            <p>Pengajar Iqra</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Ust. Afan Kaidu</h4>
+                            <p>Pengajar Tahsin</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-img">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Ust. Saiful Said</h4>
+                            <p>Pengajar Doa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeri" class="gallery">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Galeri Kegiatan</h2>
+                <p>Dokumentasi berbagai kegiatan dan momen berharga bersama para santri TPQ AL-HIJRAH</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400" alt="Wisuda Santri">
+                    <div class="gallery-overlay">
+                        <h3>Wisuda Santri</h3>
+                        <p>Penutupan dan wisuda santri tahun ajaran 2023/2024</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1590725140246-20ac70da4207?w=400" alt="Lomba Islami">
+                    <div class="gallery-overlay">
+                        <h3>Lomba Islami</h3>
+                        <p>Perlombaan antar santri dalam bidang tartil dan tahfidz</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=400" alt="Kegiatan Ramadhan">
+                    <div class="gallery-overlay">
+                        <h3>Kegiatan Ramadhan</h3>
+                        <p>Buka bersama dan tadarus Al-Qur'an bulan Ramadhan</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1609592809794-8534f7d1677b?w=400" alt="Belajar Mengaji">
+                    <div class="gallery-overlay">
+                        <h3>Belajar Mengaji</h3>
+                        <p>Aktivitas harian santri dalam belajar membaca Al-Qur'an</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1564121211835-e88c852648ab?w=400" alt="Outing Class">
+                    <div class="gallery-overlay">
+                        <h3>Outing Class</h3>
+                        <p>Kegiatan belajar di luar kelas untuk memperkuat brotherhood</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1519810755548-39b217f8f1c2?w=400" alt="Maulid Nabi">
+                    <div class="gallery-overlay">
+                        <h3>Maulid Nabi</h3>
+                        <p>Peringatan Maulid Nabi Muhammad SAW</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donasi" class="donation">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Donasi & Infaq</h2>
+                <p>Salurkan donasi Anda untuk membantu operasional dan pengembangan TPQ AL-HIJRAH</p>
+            </div>
+
+            <div class="donation-content">
+                <div class="donation-info fade-in">
+                    <h3>Bersama Membangun Generasi Qur'ani</h3>
+                    <p>Donasi Anda sangat berarti untuk kelangsungan operasional TPQ, pembangunan fasilitas, pengadaan buku dan alat peraga pembelajaran, serta beasiswa bagi santri yang kurang mampu.</p>
+                    <p>Setiap riyal yang Anda infakkan akan menjadi amal jariyah yang terus mengalir pahalanya.</p>
+                    
+                    <div class="bank-card">
+                        <h4><i class="fas fa-university"></i> Transfer Bank</h4>
+                        <p style="font-size: 1.2rem; font-weight: 600;">Bank Syariah Indonesia (BSI)</p>
+                        <p>No. Rekening: <strong>1234-5678-9012-3456</strong></p>
+                        <p>a.n: <strong>TPQ AL-HIJRAH</strong></p>
+                    </div>
+
+                    <div class="qris-placeholder">
+                        <div style="text-align: center; color: var(--primary-green);">
+                            <i class="fas fa-qrcode" style="font-size: 3rem;"></i>
+                            <p>QRIS Code</p>
+                            <small>Scan untuk donasi</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donation-form fade-in">
+                    <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Konfirmasi Donasi</h3>
+                    <form id="donationForm">
+                        <div class="form-group">
+                            <label for="donorName">Nama Lengkap</label>
+                            <input type="text" id="donorName" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donorPhone">Nomor WhatsApp</label>
+                            <input type="tel" id="donorPhone" placeholder="Contoh: 08123456789" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donorAmount">Nominal Donasi (Rp)</label>
+                            <input type="number" id="donorAmount" placeholder="Contoh: 100000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donorMessage">Pesan/Doa (Opsional)</label>
+                            <textarea id="donorMessage" rows="3" placeholder="Tulis pesan atau doa Anda"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Konfirmasi Donasi
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Hubungi Kami</h2>
+                <p>Jangan ragu untuk menghubungi kami untuk informasi pendaftaran dan lainnya</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Alamat</h4>
+                            <p>RT 005 RW 017 Desa Batu Merah<br>Kecamatan Sirimau, Kota Ambon<br>Provinsi Maluku</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>WhatsApp</h4>
+                            <p>0821-6259-9377</p>
+                            <a href="https://wa.me/082162599377" target="_blank" style="color: var(--secondary-green); font-size: 0.9rem;">Chat sekarang <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>alhijrahtpq228@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 15.00 - 17.30 WIB<br>Sabtu: 08.00 - 11.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form fade-in">
+                    <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nama Lengkap</label>
+                            <input type="text" id="contactName" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" placeholder="email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subjek</label>
+                            <input type="text" id="contactSubject" placeholder="Subjek pesan" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Pesan</label>
+                            <textarea id="contactMessage" rows="4" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="sosial" class="social">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Media Sosial</h2>
+                <p>Ikuti dan kunjungi halaman Facebook kami untuk update terbaru seputar kegiatan TPQ AL-HIJRAH</p>
+            </div>
+
+            <div class="social-links fade-in">
+                <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" title="Instagram" style="background: #e4405f;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" title="YouTube" style="background: #ff0000;">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+
+            <div style="margin-top: 3rem; max-width: 500px; margin-left: auto; margin-right: auto;" class="fade-in">
+                <div style="background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <i class="fab fa-facebook" style="font-size: 3rem; color: #1877f2;"></i>
+                    <h3 style="margin: 1rem 0; color: var(--dark);">TPQ AL-HIJRAH</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem;">Like dan follow halaman Facebook kami untuk melihat foto-foto kegiatan, jadwal penting, dan informasi terbaru lainnya.</p>
+                    <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank" class="btn" style="background: #1877f2;">
+                        <i class="fab fa-facebook-f"></i> Kunjungi Halaman
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TPQ AL-HIJRAH</h3>
+                <p>Membangun generasi Qur'ani yang berakhlak mulia melalui pendidikan Al-Qur'an yang berkualitas dan menyenangkan.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> RT 005 RW 017 Desa Batu Merah, Sirimau, Ambon</p>
+                <p><i class="fab fa-whatsapp"></i> 0621-6259-9377</p>
+                <p><i class="fas fa-envelope"></i> alhijrahtpq228@gmail.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Tautan Cepat</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#tentang">Tentang Kami</a></p>
+                <p><a href="#galeri">Galeri</a></p>
+                <p><a href="#donasi">Donasi</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Media Sosial</h3>
+                <p>
+                    <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 TPQ AL-HIJRAH. All rights reserved. | Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk umat</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Media Sosial</h3>
+                <p>
+                    <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 TPQ AL-HIJRAH. All rights reserved. | Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk umat</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+        // Form Submissions
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih atas donasi Anda! Kami akan mengkonfirmasi melalui WhatsApp.');
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pesan Anda telah terkirim! Kami akan membalas segera.');
+            this.reset();
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
