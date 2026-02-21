@@ -372,28 +372,16 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Downloads Section - NEW */
+        /* Downloads Section - SIMPLE & CLEAN */
         .downloads {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .downloads::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: var(--primary-green);
-            opacity: 0.03;
-            border-radius: 50%;
-        }
-
         .downloads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             position: relative;
             z-index: 1;
@@ -401,83 +389,48 @@
 
         .download-card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
             border: 1px solid rgba(26, 95, 74, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-green), var(--secondary-green));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            text-align: center;
         }
 
         .download-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(26, 95, 74, 0.15);
-        }
-
-        .download-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 95, 74, 0.15);
         }
 
         .download-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--light-green) 0%, #d4f1e4 100%);
-            border-radius: 15px;
+            width: 60px;
+            height: 60px;
+            background: var(--light-green);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--primary-green);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .download-card:hover .download-icon {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
-            color: var(--white);
-            transform: rotate(-5deg) scale(1.1);
+            margin: 0 auto 1rem;
         }
 
         .download-card h3 {
             color: var(--dark);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
         .download-card p {
             color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .download-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
             font-size: 0.85rem;
             color: #888;
-        }
-
-        .download-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
+            margin-bottom: 1rem;
         }
 
         .download-btn {
@@ -488,39 +441,16 @@
             background: var(--primary-green);
             color: var(--white);
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             border: 2px solid var(--primary-green);
-            width: 100%;
-            justify-content: center;
         }
 
         .download-btn:hover {
             background: transparent;
             color: var(--primary-green);
-        }
-
-        .download-btn i {
-            transition: transform 0.3s ease;
-        }
-
-        .download-btn:hover i {
-            transform: translateY(3px);
-        }
-
-        .download-category {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: var(--accent-gold);
-            color: var(--white);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         /* Gallery Section */
@@ -860,34 +790,6 @@
         .islamic-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5f4a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary-green);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.4s ease;
-            z-index: 9999;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .toast i {
-            font-size: 1.5rem;
-        }
     </style>
 </head>
 <body>
@@ -907,7 +809,6 @@
                 <li><a href="#galeri" class="nav-link">Galeri</a></li>
                 <li><a href="#donasi" class="nav-link">Donasi</a></li>
                 <li><a href="#kontak" class="nav-link">Hubungi Kami</a></li>
-                <li><a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank" class="nav-link"><i class="fab fa-facebook"></i> Facebook</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -988,17 +889,16 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h3>Sejarah Berdiri</h3>
-                    <p>TPQ AL-HIJRAH Yang beralamat di Arbes Amantelu RT 005 RW 017 Negeri Batu Merah Kota Ambon ini, didirikan dengan niat mulia untuk memberikan pendidikan Al-Qur'an yang berkualitas bagi anak-anak di lingkungan kita. Berawal dari kepedulian terhadap generasi muda yang perlu dibekali dengan ilmu agama sejak dini, kami memulai perjalanan ini dengan penuh semangat dan keikhlasan.</p>
-                    <p>Dengan dukungan para orang tua, ustadz, dan ustadzah yang berkompeten, TPQ AL-HIJRAH terus berkembang menjadi lembaga pembelajaran Al-Qur'an yang dicintai para santri. Kami berkomitmen untuk mencetak generasi yang tidak hanya hafal Al-Qur'an, tetapi juga memahami dan mengamalkannya dalam kehidupan sehari-hari.</p>
+                    <p>TPQ AL-HIJRAH Yang beralamat di Arbes Amantelu RT 005 RW 017 Negeri Batu Merah Kota Ambon ini, didirikan dengan niat mulia untuk memberikan pendidikan Al-Qur'an yang berkualitas bagi anak-anak di lingkungan kita.</p>
                     
                     <div class="vision-mission">
                         <div class="vm-card">
                             <h4><i class="fas fa-eye"></i> Visi</h4>
-                            <p>Menjadikan TPQ AL-HIJRAH sebagai lembaga pendidikan Al-Qur'an terdepan yang mencetak generasi Qur'ani, berakhlak mulia, dan bermanfaat bagi umat.</p>
+                            <p>Menjadikan TPQ AL-HIJRAH sebagai lembaga pendidikan Al-Qur'an terdepan yang mencetak generasi Qur'ani.</p>
                         </div>
                         <div class="vm-card">
                             <h4><i class="fas fa-bullseye"></i> Misi</h4>
-                            <p>Menyelenggarakan pembelajaran Al-Qur'an yang berkualitas, membentuk akhlak islami, dan mengembangkan potensi santri secara holistik.</p>
+                            <p>Menyelenggarakan pembelajaran Al-Qur'an yang berkualitas dan membentuk akhlak islami.</p>
                         </div>
                     </div>
                 </div>
@@ -1006,30 +906,22 @@
                 <div class="about-image fade-in">
                     <div class="team-grid">
                         <div class="team-card">
-                            <div class="team-img">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
+                            <div class="team-img"><i class="fas fa-user-tie"></i></div>
                             <h4>Ust. Imra Wabula</h4>
                             <p>Pengajar Tahfidz</p>
                         </div>
                         <div class="team-card">
-                            <div class="team-img">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
+                            <div class="team-img"><i class="fas fa-user-tie"></i></div>
                             <h4>Ustz. Wa Ati</h4>
                             <p>Pengajar Iqra</p>
                         </div>
                         <div class="team-card">
-                            <div class="team-img">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
+                            <div class="team-img"><i class="fas fa-user-tie"></i></div>
                             <h4>Ust. Afan Kaidu</h4>
                             <p>Pengajar Tahsin</p>
                         </div>
                         <div class="team-card">
-                            <div class="team-img">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
+                            <div class="team-img"><i class="fas fa-user-tie"></i></div>
                             <h4>Ust. Saiful Said</h4>
                             <p>Pengajar Doa</p>
                         </div>
@@ -1039,129 +931,88 @@
         </div>
     </section>
 
-    <!-- Downloads Section - NEW -->
+    <!-- Downloads Section - SIMPLE & WORKING -->
     <section id="berkas" class="downloads">
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Download Berkas</h2>
-                <p>Unduh formulir pendaftaran dan dokumen penting lainnya untuk keperluan administrasi TPQ AL-HIJRAH</p>
+                <p>Unduh formulir pendaftaran dan dokumen penting lainnya</p>
             </div>
 
             <div class="downloads-grid">
-                <!-- Formulir Pendaftaran -->
+                <!-- File 1: Formulir Pendaftaran -->
                 <div class="download-card fade-in">
-                    <span class="download-category">Pendaftaran</span>
-                    <div class="download-icon">
-                        <i class="fas fa-file-signature"></i>
-                    </div>
-                    <h3>Formulir Pendaftaran Santri</h3>
-                    <p>Formulir lengkap untuk pendaftaran santri baru TPQ AL-HIJRAH. Isi dengan data yang valid dan lengkap.</p>
-                    <div class="download-meta">
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                        <span><i class="fas fa-weight-hanging"></i> 245 KB</span>
-                        <span><i class="fas fa-calendar"></i> 2024</span>
-                    </div>
-                    <a href="#" class="download-btn" onclick="handleDownload('formulir-pendaftaran', 'Formulir Pendaftaran Santri')">
-                        <i class="fas fa-download"></i> Unduh Berkas
+                    <div class="download-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Formulir Pendaftaran</h3>
+                    <p>Formulir pendaftaran santri baru TPQ AL-HIJRAH</p>
+                    <div class="download-meta">PDF • 245 KB • 2024</div>
+                    <!-- GANTI NAMA FILE SESUAI DENGAN FILE ANDA -->
+                    <a href="downloads/formulir-pendaftaran.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download
                     </a>
                 </div>
 
-                <!-- Surat Pernyataan -->
+                <!-- File 2: Surat Pernyataan -->
                 <div class="download-card fade-in">
-                    <span class="download-category">Pendaftaran</span>
-                    <div class="download-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Surat Pernyataan Orang Tua</h3>
-                    <p>Surat pernyataan kesanggupan orang tua/wali dalam mendukung program pembelajaran TPQ.</p>
-                    <div class="download-meta">
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                        <span><i class="fas fa-weight-hanging"></i> 180 KB</span>
-                        <span><i class="fas fa-calendar"></i> 2024</span>
-                    </div>
-                    <a href="#" class="download-btn" onclick="handleDownload('surat-pernyataan', 'Surat Pernyataan Orang Tua')">
-                        <i class="fas fa-download"></i> Unduh Berkas
+                    <div class="download-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Surat Pernyataan</h3>
+                    <p>Surat pernyataan orang tua/wali santri</p>
+                    <div class="download-meta">PDF • 180 KB • 2024</div>
+                    <a href="downloads/surat-pernyataan.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download
                     </a>
                 </div>
 
-                <!-- Jadwal Kegiatan -->
+                <!-- File 3: Jadwal Kegiatan -->
                 <div class="download-card fade-in">
-                    <span class="download-category">Informasi</span>
-                    <div class="download-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Jadwal Kegiatan TPQ</h3>
-                    <p>Jadwal lengkap kegiatan pembelajaran harian dan mingguan santri TPQ AL-HIJRAH.</p>
-                    <div class="download-meta">
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                        <span><i class="fas fa-weight-hanging"></i> 320 KB</span>
-                        <span><i class="fas fa-calendar"></i> 2024/2025</span>
-                    </div>
-                    <a href="#" class="download-btn" onclick="handleDownload('jadwal-kegiatan', 'Jadwal Kegiatan TPQ')">
-                        <i class="fas fa-download"></i> Unduh Berkas
+                    <div class="download-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>Jadwal Kegiatan</h3>
+                    <p>Jadwal pembelajaran harian dan mingguan</p>
+                    <div class="download-meta">PDF • 320 KB • 2024/2025</div>
+                    <a href="downloads/jadwal-kegiatan.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download
                     </a>
                 </div>
 
-                <!-- Kalender Akademik -->
+                <!-- File 4: Kalender Akademik -->
                 <div class="download-card fade-in">
-                    <span class="download-category">Informasi</span>
-                    <div class="download-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
+                    <div class="download-icon"><i class="fas fa-calendar-check"></i></div>
                     <h3>Kalender Akademik</h3>
-                    <p>Kalender akademik tahun ajaran 2024/2025 termasuk jadwal libur dan ujian.</p>
-                    <div class="download-meta">
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                        <span><i class="fas fa-weight-hanging"></i> 450 KB</span>
-                        <span><i class="fas fa-calendar"></i> 2024/2025</span>
-                    </div>
-                    <a href="#" class="download-btn" onclick="handleDownload('kalender-akademik', 'Kalender Akademik')">
-                        <i class="fas fa-download"></i> Unduh Berkas
+                    <p>Kalender akademik tahun ajaran 2024/2025</p>
+                    <div class="download-meta">PDF • 450 KB • 2024/2025</div>
+                    <a href="downloads/kalender-akademik.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download
                     </a>
                 </div>
 
-                <!-- Peraturan TPQ -->
+                <!-- File 5: Peraturan -->
                 <div class="download-card fade-in">
-                    <span class="download-category">Peraturan</span>
-                    <div class="download-icon">
-                        <i class="fas fa-scroll"></i>
-                    </div>
+                    <div class="download-icon"><i class="fas fa-scroll"></i></div>
                     <h3>Peraturan & Tata Tertib</h3>
-                    <p>Tata tertib dan peraturan yang wajib dipatuhi oleh seluruh santri TPQ AL-HIJRAH.</p>
-                    <div class="download-meta">
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                        <span><i class="fas fa-weight-hanging"></i> 275 KB</span>
-                        <span><i class="fas fa-calendar"></i> 2024</span>
-                    </div>
-                    <a href="#" class="download-btn" onclick="handleDownload('peraturan', 'Peraturan & Tata Tertib')">
-                        <i class="fas fa-download"></i> Unduh Berkas
+                    <p>Tata tertib yang wajib dipatuhi santri</p>
+                    <div class="download-meta">PDF • 275 KB • 2024</div>
+                    <a href="downloads/peraturan-tata-tertib.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download
                     </a>
                 </div>
 
-                <!-- Brosur TPQ -->
+                <!-- File 6: Brosur -->
                 <div class="download-card fade-in">
-                    <span class="download-category">Promosi</span>
-                    <div class="download-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Brosur TPQ AL-HIJRAH</h3>
-                    <p>Brosur informatif tentang program, fasilitas, dan keunggulan TPQ AL-HIJRAH.</p>
-                    <div class="download-meta">
-                        <span><i class="fas fa-file-pdf"></i> PDF</span>
-                        <span><i class="fas fa-weight-hanging"></i> 1.2 MB</span>
-                        <span><i class="fas fa-calendar"></i> 2024</span>
-                    </div>
-                    <a href="#" class="download-btn" onclick="handleDownload('brosur', 'Brosur TPQ AL-HIJRAH')">
-                        <i class="fas fa-download"></i> Unduh Berkas
+                    <div class="download-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Brosur TPQ</h3>
+                    <p>Brosur informasi TPQ AL-HIJRAH</p>
+                    <div class="download-meta">PDF • 1.2 MB • 2024</div>
+                    <a href="downloads/brosur-tpq.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Download
                     </a>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 3rem;" class="fade-in">
-                <div style="background: var(--white); padding: 2rem; border-radius: 15px; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 600px;">
+                <div style="background: var(--white); padding: 2rem; border-radius: 15px; display: inline-block; max-width: 600px;">
                     <i class="fas fa-info-circle" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
-                    <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Butuh Bantuan?</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">Jika mengalami kesulitan dalam mengunduh berkas, silakan hubungi admin TPQ melalui WhatsApp.</p>
+                    <h3 style="color: var(--primary-green);">Butuh Bantuan?</h3>
+                    <p style="color: #666; margin: 1rem 0;">Jika file tidak bisa diunduh, silakan hubungi admin.</p>
                     <a href="https://wa.me/6282162599377" target="_blank" class="btn" style="background: #25d366;">
                         <i class="fab fa-whatsapp"></i> Hubungi Admin
                     </a>
@@ -1175,55 +1026,26 @@
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Galeri Kegiatan</h2>
-                <p>Dokumentasi berbagai kegiatan dan momen berharga bersama para santri TPQ AL-HIJRAH</p>
+                <p>Dokumentasi kegiatan TPQ AL-HIJRAH</p>
             </div>
 
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400" alt="Wisuda Santri">
+                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400" alt="Wisuda">
                     <div class="gallery-overlay">
                         <h3>Wisuda Santri</h3>
-                        <p>Penutupan dan wisuda santri tahun ajaran 2023/2024</p>
                     </div>
                 </div>
-                
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1590725140246-20ac70da4207?w=400" alt="Lomba Islami">
+                    <img src="https://images.unsplash.com/photo-1590725140246-20ac70da4207?w=400" alt="Lomba">
                     <div class="gallery-overlay">
                         <h3>Lomba Islami</h3>
-                        <p>Perlombaan antar santri dalam bidang tartil dan tahfidz</p>
                     </div>
                 </div>
-                
                 <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=400" alt="Kegiatan Ramadhan">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=400" alt="Ramadhan">
                     <div class="gallery-overlay">
                         <h3>Kegiatan Ramadhan</h3>
-                        <p>Buka bersama dan tadarus Al-Qur'an bulan Ramadhan</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1609592809794-8534f7d1677b?w=400" alt="Belajar Mengaji">
-                    <div class="gallery-overlay">
-                        <h3>Belajar Mengaji</h3>
-                        <p>Aktivitas harian santri dalam belajar membaca Al-Qur'an</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1564121211835-e88c852648ab?w=400" alt="Outing Class">
-                    <div class="gallery-overlay">
-                        <h3>Outing Class</h3>
-                        <p>Kegiatan belajar di luar kelas untuk memperkuat brotherhood</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1519810755548-39b217f8f1c2?w=400" alt="Maulid Nabi">
-                    <div class="gallery-overlay">
-                        <h3>Maulid Nabi</h3>
-                        <p>Peringatan Maulid Nabi Muhammad SAW</p>
                     </div>
                 </div>
             </div>
@@ -1235,56 +1057,34 @@
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Donasi & Infaq</h2>
-                <p>Salurkan donasi Anda untuk membantu operasional dan pengembangan TPQ AL-HIJRAH</p>
+                <p>Salurkan donasi untuk TPQ AL-HIJRAH</p>
             </div>
 
             <div class="donation-content">
                 <div class="donation-info fade-in">
                     <h3>Bersama Membangun Generasi Qur'ani</h3>
-                    <p>Donasi Anda sangat berarti untuk kelangsungan operasional TPQ, pembangunan fasilitas, pengadaan buku dan alat peraga pembelajaran, serta beasiswa bagi santri yang kurang mampu.</p>
-                    <p>Setiap riyal yang Anda infakkan akan menjadi amal jariyah yang terus mengalir pahalanya.</p>
+                    <p>Donasi Anda sangat berarti untuk kelangsungan TPQ.</p>
                     
                     <div class="bank-card">
-                        <h4><i class="fas fa-university"></i> Transfer Bank</h4>
-                        <p style="font-size: 1.2rem; font-weight: 600;">Bank Syariah Indonesia (BSI)</p>
+                        <h4><i class="fas fa-university"></i> Bank Syariah Indonesia (BSI)</h4>
                         <p>No. Rekening: <strong>1234-5678-9012-3456</strong></p>
                         <p>a.n: <strong>TPQ AL-HIJRAH</strong></p>
-                    </div>
-
-                    <div class="qris-placeholder">
-                        <div style="text-align: center; color: var(--primary-green);">
-                            <i class="fas fa-qrcode" style="font-size: 3rem;"></i>
-                            <p>QRIS Code</p>
-                            <small>Scan untuk donasi</small>
-                        </div>
                     </div>
                 </div>
 
                 <div class="donation-form fade-in">
                     <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Konfirmasi Donasi</h3>
-                    <form id="donationForm">
+                    <form onsubmit="event.preventDefault(); alert('Terima kasih! Kami akan menghubungi Anda.');">
                         <div class="form-group">
-                            <label for="donorName">Nama Lengkap</label>
-                            <input type="text" id="donorName" placeholder="Masukkan nama Anda" required>
+                            <label>Nama Lengkap</label>
+                            <input type="text" placeholder="Masukkan nama" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="donorPhone">Nomor WhatsApp</label>
-                            <input type="tel" id="donorPhone" placeholder="Contoh: 08123456789" required>
+                            <label>Nominal Donasi</label>
+                            <input type="number" placeholder="Contoh: 100000" required>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="donorAmount">Nominal Donasi (Rp)</label>
-                            <input type="number" id="donorAmount" placeholder="Contoh: 100000" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="donorMessage">Pesan/Doa (Opsional)</label>
-                            <textarea id="donorMessage" rows="3" placeholder="Tulis pesan atau doa Anda"></textarea>
-                        </div>
-                        
                         <button type="submit" class="btn" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Konfirmasi Donasi
+                            <i class="fas fa-paper-plane"></i> Konfirmasi
                         </button>
                     </form>
                 </div>
@@ -1297,113 +1097,42 @@
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Hubungi Kami</h2>
-                <p>Jangan ragu untuk menghubungi kami untuk informasi pendaftaran dan lainnya</p>
+                <p>Informasi kontak TPQ AL-HIJRAH</p>
             </div>
 
             <div class="contact-content">
                 <div class="contact-info fade-in">
                     <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
                             <h4>Alamat</h4>
-                            <p>RT 005 RW 017 Desa Batu Merah<br>Kecamatan Sirimau, Kota Ambon<br>Provinsi Maluku</p>
+                            <p>RT 005 RW 017 Desa Batu Merah<br>Sirimau, Kota Ambon</p>
                         </div>
                     </div>
-
                     <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                         <div class="contact-text">
                             <h4>WhatsApp</h4>
                             <p>0821-6259-9377</p>
-                            <a href="https://wa.me/082162599377" target="_blank" style="color: var(--secondary-green); font-size: 0.9rem;">Chat sekarang <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>alhijrahtpq228@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Jam Operasional</h4>
-                            <p>Senin - Jumat: 15.00 - 17.30 WIB<br>Sabtu: 08.00 - 11.00 WIB</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form fade-in">
                     <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Kirim Pesan</h3>
-                    <form id="contactForm">
+                    <form onsubmit="event.preventDefault(); alert('Pesan terkirim!');">
                         <div class="form-group">
-                            <label for="contactName">Nama Lengkap</label>
-                            <input type="text" id="contactName" placeholder="Masukkan nama Anda" required>
+                            <label>Nama</label>
+                            <input type="text" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="contactEmail">Email</label>
-                            <input type="email" id="contactEmail" placeholder="email@example.com" required>
+                            <label>Pesan</label>
+                            <textarea rows="4" required></textarea>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="contactSubject">Subjek</label>
-                            <input type="text" id="contactSubject" placeholder="Subjek pesan" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactMessage">Pesan</label>
-                            <textarea id="contactMessage" rows="4" placeholder="Tulis pesan Anda di sini..." required></textarea>
-                        </div>
-                        
                         <button type="submit" class="btn" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                            <i class="fas fa-paper-plane"></i> Kirim
                         </button>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section id="sosial" class="social">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Media Sosial</h2>
-                <p>Ikuti dan kunjungi halaman Facebook kami untuk update terbaru seputar kegiatan TPQ AL-HIJRAH</p>
-            </div>
-
-            <div class="social-links fade-in">
-                <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank" class="social-link" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-link" title="Instagram" style="background: #e4405f;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link" title="YouTube" style="background: #ff0000;">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-
-            <div style="margin-top: 3rem; max-width: 500px; margin-left: auto; margin-right: auto;" class="fade-in">
-                <div style="background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fab fa-facebook" style="font-size: 3rem; color: #1877f2;"></i>
-                    <h3 style="margin: 1rem 0; color: var(--dark);">TPQ AL-HIJRAH</h3>
-                    <p style="color: #666; margin-bottom: 1.5rem;">Like dan follow halaman Facebook kami untuk melihat foto-foto kegiatan, jadwal penting, dan informasi terbaru lainnya.</p>
-                    <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank" class="btn" style="background: #1877f2;">
-                        <i class="fab fa-facebook-f"></i> Kunjungi Halaman
-                    </a>
                 </div>
             </div>
         </div>
@@ -1414,51 +1143,28 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>TPQ AL-HIJRAH</h3>
-                <p>Membangun generasi Qur'ani yang berakhlak mulia melalui pendidikan Al-Qur'an yang berkualitas dan menyenangkan.</p>
+                <p>Membangun generasi Qur'ani yang berakhlak mulia.</p>
             </div>
-            
             <div class="footer-section">
                 <h3>Kontak</h3>
-                <p><i class="fas fa-map-marker-alt"></i> RT 005 RW 017 Desa Batu Merah, Sirimau, Ambon</p>
+                <p><i class="fas fa-map-marker-alt"></i> Batu Merah, Ambon</p>
                 <p><i class="fab fa-whatsapp"></i> 0821-6259-9377</p>
-                <p><i class="fas fa-envelope"></i> alhijrahtpq228@gmail.com</p>
             </div>
-            
             <div class="footer-section">
-                <h3>Tautan Cepat</h3>
+                <h3>Tautan</h3>
                 <p><a href="#home">Home</a></p>
-                <p><a href="#tentang">Tentang Kami</a></p>
-                <p><a href="#berkas">Download Berkas</a></p>
-                <p><a href="#galeri">Galeri</a></p>
-                <p><a href="#donasi">Donasi</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Media Sosial</h3>
-                <p>
-                    <a href="https://www.facebook.com/share/186TEdXtFp/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a><br>
-                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br>
-                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-                </p>
+                <p><a href="#berkas">Download</a></p>
+                <p><a href="#kontak">Kontak</a></p>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <p>&copy; 2024 TPQ AL-HIJRAH. All rights reserved. | Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk umat</p>
+            <p>&copy; 2024 TPQ AL-HIJRAH. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">
-        <i class="fas fa-check-circle"></i>
-        <div>
-            <strong>Berhasil!</strong>
-            <p id="toastMessage">File sedang diunduh...</p>
-        </div>
-    </div>
-
+    <!-- JavaScript Simple -->
     <script>
-        // Mobile Navigation Toggle
+        // Mobile Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
         
@@ -1467,7 +1173,7 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
+        // Close menu when clicking link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -1476,75 +1182,16 @@
         });
 
         // Scroll Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-
-        // Form Submissions
-        document.getElementById('donationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih atas donasi Anda! Kami akan mengkonfirmasi melalui WhatsApp.');
-            this.reset();
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Pesan Anda telah terkirim! Kami akan membalas segera.');
-            this.reset();
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
-
-        // Download Handler Function
-        function handleDownload(fileId, fileName) {
-    showToast(`Mengunduh ${fileName}...`);
-    
-    // Ganti dengan path file PDF yang sebenarnya di server Anda
-    const fileUrl = `https://website-anda.com/downloads/${fileId}.pdf`;
-    
-    const a = document.createElement('a');
-    a.href = fileUrl;
-    a.download = `${fileId}.pdf`;
-    a.target = '_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    
-    showToast(`${fileName} berhasil diunduh!`);
-    return false;
-}
-
-        // Toast Notification Function
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
     </script>
+
 </body>
 </html>
