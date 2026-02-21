@@ -372,6 +372,157 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Downloads Section - NEW */
+        .downloads {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .downloads::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-green);
+            opacity: 0.03;
+            border-radius: 50%;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(26, 95, 74, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--secondary-green));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(26, 95, 74, 0.15);
+        }
+
+        .download-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .download-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--light-green) 0%, #d4f1e4 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover .download-icon {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .download-card h3 {
+            color: var(--dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .download-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .download-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .download-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-green);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            background: transparent;
+            color: var(--primary-green);
+        }
+
+        .download-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover i {
+            transform: translateY(3px);
+        }
+
+        .download-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--accent-gold);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         /* Gallery Section */
         .gallery {
             background: var(--gray);
@@ -699,11 +850,43 @@
                 margin-left: 0;
                 margin-top: 1rem;
             }
+
+            .downloads-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Islamic Pattern Background */
         .islamic-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a5f4a' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 9999;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -720,6 +903,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#tentang" class="nav-link">Tentang Kami</a></li>
+                <li><a href="#berkas" class="nav-link">Download</a></li>
                 <li><a href="#galeri" class="nav-link">Galeri</a></li>
                 <li><a href="#donasi" class="nav-link">Donasi</a></li>
                 <li><a href="#kontak" class="nav-link">Hubungi Kami</a></li>
@@ -741,7 +925,6 @@
                 <img src="https://i.ibb.co.com/1YqHqwMH/logo-tpq.png" alt="Logo TPQ AL-HIJRAH">
             </div>
             <h1>Selamat Datang di TPQ AL-HIJRAH</h1>
-             <h1>Arbes Amantelu RT 005 RW 17</h1>
             <p>Membangun Generasi Qur'ani, Berakhlak Mulia</p>
             <div>
                 <a href="#kontak" class="btn">Daftar Sekarang</a>
@@ -849,7 +1032,139 @@
                             </div>
                             <h4>Ust. Saiful Said</h4>
                             <p>Pengajar Doa</p>
-                       </div>        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section - NEW -->
+    <section id="berkas" class="downloads">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Download Berkas</h2>
+                <p>Unduh formulir pendaftaran dan dokumen penting lainnya untuk keperluan administrasi TPQ AL-HIJRAH</p>
+            </div>
+
+            <div class="downloads-grid">
+                <!-- Formulir Pendaftaran -->
+                <div class="download-card fade-in">
+                    <span class="download-category">Pendaftaran</span>
+                    <div class="download-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Formulir Pendaftaran Santri</h3>
+                    <p>Formulir lengkap untuk pendaftaran santri baru TPQ AL-HIJRAH. Isi dengan data yang valid dan lengkap.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-weight-hanging"></i> 245 KB</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <a href="#" class="download-btn" onclick="handleDownload('formulir-pendaftaran', 'Formulir Pendaftaran Santri')">
+                        <i class="fas fa-download"></i> Unduh Berkas
+                    </a>
+                </div>
+
+                <!-- Surat Pernyataan -->
+                <div class="download-card fade-in">
+                    <span class="download-category">Pendaftaran</span>
+                    <div class="download-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Surat Pernyataan Orang Tua</h3>
+                    <p>Surat pernyataan kesanggupan orang tua/wali dalam mendukung program pembelajaran TPQ.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-weight-hanging"></i> 180 KB</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <a href="#" class="download-btn" onclick="handleDownload('surat-pernyataan', 'Surat Pernyataan Orang Tua')">
+                        <i class="fas fa-download"></i> Unduh Berkas
+                    </a>
+                </div>
+
+                <!-- Jadwal Kegiatan -->
+                <div class="download-card fade-in">
+                    <span class="download-category">Informasi</span>
+                    <div class="download-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Jadwal Kegiatan TPQ</h3>
+                    <p>Jadwal lengkap kegiatan pembelajaran harian dan mingguan santri TPQ AL-HIJRAH.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-weight-hanging"></i> 320 KB</span>
+                        <span><i class="fas fa-calendar"></i> 2024/2025</span>
+                    </div>
+                    <a href="#" class="download-btn" onclick="handleDownload('jadwal-kegiatan', 'Jadwal Kegiatan TPQ')">
+                        <i class="fas fa-download"></i> Unduh Berkas
+                    </a>
+                </div>
+
+                <!-- Kalender Akademik -->
+                <div class="download-card fade-in">
+                    <span class="download-category">Informasi</span>
+                    <div class="download-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Kalender Akademik</h3>
+                    <p>Kalender akademik tahun ajaran 2024/2025 termasuk jadwal libur dan ujian.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-weight-hanging"></i> 450 KB</span>
+                        <span><i class="fas fa-calendar"></i> 2024/2025</span>
+                    </div>
+                    <a href="#" class="download-btn" onclick="handleDownload('kalender-akademik', 'Kalender Akademik')">
+                        <i class="fas fa-download"></i> Unduh Berkas
+                    </a>
+                </div>
+
+                <!-- Peraturan TPQ -->
+                <div class="download-card fade-in">
+                    <span class="download-category">Peraturan</span>
+                    <div class="download-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>Peraturan & Tata Tertib</h3>
+                    <p>Tata tertib dan peraturan yang wajib dipatuhi oleh seluruh santri TPQ AL-HIJRAH.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-weight-hanging"></i> 275 KB</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <a href="#" class="download-btn" onclick="handleDownload('peraturan', 'Peraturan & Tata Tertib')">
+                        <i class="fas fa-download"></i> Unduh Berkas
+                    </a>
+                </div>
+
+                <!-- Brosur TPQ -->
+                <div class="download-card fade-in">
+                    <span class="download-category">Promosi</span>
+                    <div class="download-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Brosur TPQ AL-HIJRAH</h3>
+                    <p>Brosur informatif tentang program, fasilitas, dan keunggulan TPQ AL-HIJRAH.</p>
+                    <div class="download-meta">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-weight-hanging"></i> 1.2 MB</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <a href="#" class="download-btn" onclick="handleDownload('brosur', 'Brosur TPQ AL-HIJRAH')">
+                        <i class="fas fa-download"></i> Unduh Berkas
+                    </a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;" class="fade-in">
+                <div style="background: var(--white); padding: 2rem; border-radius: 15px; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 600px;">
+                    <i class="fas fa-info-circle" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Butuh Bantuan?</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">Jika mengalami kesulitan dalam mengunduh berkas, silakan hubungi admin TPQ melalui WhatsApp.</p>
+                    <a href="https://wa.me/6282162599377" target="_blank" class="btn" style="background: #25d366;">
+                        <i class="fab fa-whatsapp"></i> Hubungi Admin
+                    </a>
                 </div>
             </div>
         </div>
@@ -864,57 +1179,51 @@
             </div>
 
             <div class="gallery-grid">
-                <!-- Foto Wisuda Santri -->
                 <div class="gallery-item fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/humprofoto.tanjungpinangkota.go.id/1af036ddd25832fb84eeabe72ab119f8c336cb81.jpg" alt="Wisuda Santri TPQ AL-HIJRAH">
+                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400" alt="Wisuda Santri">
                     <div class="gallery-overlay">
                         <h3>Wisuda Santri</h3>
-                        <p>Penutupan dan wisuda santri tahun ajaran 2025/2026</p>
+                        <p>Penutupan dan wisuda santri tahun ajaran 2023/2024</p>
                     </div>
                 </div>
                 
-                <!-- Foto Lomba Tartil -->
                 <div class="gallery-item fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/awsimages.detik.net.id/164b5192abe10cb105c43b1ae2b73d122b693aaf.jpeg" alt="Lomba Tartil Al-Qur'an TPQ AL-HIJRAH">
+                    <img src="https://images.unsplash.com/photo-1590725140246-20ac70da4207?w=400" alt="Lomba Islami">
                     <div class="gallery-overlay">
                         <h3>Lomba Islami</h3>
                         <p>Perlombaan antar santri dalam bidang tartil dan tahfidz</p>
                     </div>
                 </div>
                 
-                <!-- Foto Tadarus Ramadhan -->
                 <div class="gallery-item fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/awsimages.detik.net.id/484360e508c11286c936065a4a0afe4f7e0c781d.jpeg" alt="Tadarus Al-Qur'an Ramadhan TPQ AL-HIJRAH">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=400" alt="Kegiatan Ramadhan">
                     <div class="gallery-overlay">
                         <h3>Kegiatan Ramadhan</h3>
                         <p>Buka bersama dan tadarus Al-Qur'an bulan Ramadhan</p>
                     </div>
                 </div>
                 
-                <!-- Foto Belajar Mengaji -->
                 <div class="gallery-item fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/kampusitahnews.iain-palangkaraya.ac.id/57f6e9ea8c840a5d81a12ccee41c0eff21225d6b.jpeg" alt="Belajar Mengaji TPQ AL-HIJRAH">
+                    <img src="https://images.unsplash.com/photo-1609592809794-8534f7d1677b?w=400" alt="Belajar Mengaji">
                     <div class="gallery-overlay">
                         <h3>Belajar Mengaji</h3>
                         <p>Aktivitas harian santri dalam belajar membaca Al-Qur'an</p>
                     </div>
                 </div>
                 
-                <!-- Foto Outbound -->
                 <div class="gallery-item fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/kissparry.com/cc09727d0a4af239c14e7bbae1e2744b098d64be.jpg" alt="Outbound TPQ AL-HIJRAH">
+                    <img src="https://images.unsplash.com/photo-1564121211835-e88c852648ab?w=400" alt="Outing Class">
                     <div class="gallery-overlay">
                         <h3>Outing Class</h3>
                         <p>Kegiatan belajar di luar kelas untuk memperkuat brotherhood</p>
                     </div>
                 </div>
                 
-                <!-- Foto Kegiatan TPQ -->
                 <div class="gallery-item fade-in">
-                    <img src="https://kimi-web-img.moonshot.cn/img/agussiswoyo.com/285d69465e331e85169cd2fce2a51b895d4cc62b.jpg" alt="Kegiatan Santri TPQ AL-HIJRAH">
+                    <img src="https://images.unsplash.com/photo-1519810755548-39b217f8f1c2?w=400" alt="Maulid Nabi">
                     <div class="gallery-overlay">
-                        <h3>Kegiatan Harian</h3>
-                        <p>Pembelajaran interaktif santri TPQ AL-HIJRAH</p>
+                        <h3>Maulid Nabi</h3>
+                        <p>Peringatan Maulid Nabi Muhammad SAW</p>
                     </div>
                 </div>
             </div>
@@ -1039,8 +1348,8 @@
                     <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;">Kirim Pesan</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="contactName">Ramli Salong</label>
-                            <input type="text" id="contactName" placeholder="Ramli Salong" required>
+                            <label for="contactName">Nama Lengkap</label>
+                            <input type="text" id="contactName" placeholder="Masukkan nama Anda" required>
                         </div>
                         
                         <div class="form-group">
@@ -1110,8 +1419,8 @@
             
             <div class="footer-section">
                 <h3>Kontak</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Arbes Amantelu RT 005 RW 017 Desa Batu Merah, Sirimau, Ambon</p>
-                <p><i class="fab fa-whatsapp"></i> 62821-6259-9377</p>
+                <p><i class="fas fa-map-marker-alt"></i> RT 005 RW 017 Desa Batu Merah, Sirimau, Ambon</p>
+                <p><i class="fab fa-whatsapp"></i> 0821-6259-9377</p>
                 <p><i class="fas fa-envelope"></i> alhijrahtpq228@gmail.com</p>
             </div>
             
@@ -1119,6 +1428,7 @@
                 <h3>Tautan Cepat</h3>
                 <p><a href="#home">Home</a></p>
                 <p><a href="#tentang">Tentang Kami</a></p>
+                <p><a href="#berkas">Download Berkas</a></p>
                 <p><a href="#galeri">Galeri</a></p>
                 <p><a href="#donasi">Donasi</a></p>
             </div>
@@ -1137,6 +1447,15 @@
             <p>&copy; 2024 TPQ AL-HIJRAH. All rights reserved. | Dibuat dengan <i class="fas fa-heart" style="color: #e74c3c;"></i> untuk umat</p>
         </div>
     </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <strong>Berhasil!</strong>
+            <p id="toastMessage">File sedang diunduh...</p>
+        </div>
+    </div>
 
     <script>
         // Mobile Navigation Toggle
@@ -1194,7 +1513,38 @@
                 navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
         });
+
+        // Download Handler Function
+        function handleDownload(fileId, fileName) {
+    showToast(`Mengunduh ${fileName}...`);
+    
+    // Ganti dengan path file PDF yang sebenarnya di server Anda
+    const fileUrl = `https://website-anda.com/downloads/${fileId}.pdf`;
+    
+    const a = document.createElement('a');
+    a.href = fileUrl;
+    a.download = `${fileId}.pdf`;
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    showToast(`${fileName} berhasil diunduh!`);
+    return false;
+}
+
+        // Toast Notification Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
-
